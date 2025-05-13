@@ -18,12 +18,12 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 // GET all items
-app.get('/api/items', (req, res) => {
+app.get('/items', (req, res) => {
   res.json(items);
 });
 
 // GET a single item by ID
-app.get('/api/items/:id', (req, res) => {
+app.get('/items/:id', (req, res) => {
   const itemId = parseInt(req.params.id);
   const item = items.find(i => i.id === itemId);
   if (item) {
@@ -34,7 +34,7 @@ app.get('/api/items/:id', (req, res) => {
 });
 
 // POST a new item
-app.post('/api/items', (req, res) => {
+app.post('/items', (req, res) => {
   const newItem = {
     id: nextId++,
     name: req.body.name,
@@ -47,7 +47,7 @@ app.post('/api/items', (req, res) => {
 });
 
 // PUT (update) an existing item by ID
-app.put('/api/items/:id', (req, res) => {
+app.put('/items/:id', (req, res) => {
   const itemId = parseInt(req.params.id);
   const itemIndex = items.findIndex(i => i.id === itemId);
 
@@ -63,7 +63,7 @@ app.put('/api/items/:id', (req, res) => {
 });
 
 // DELETE an item by ID
-app.delete('/api/items/:id', (req, res) => {
+app.delete('/items/:id', (req, res) => {
   const itemId = parseInt(req.params.id);
   const itemIndex = items.findIndex(i => i.id === itemId);
 
